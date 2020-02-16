@@ -14,7 +14,8 @@ class AdminController extends Controller
     }
 
     public function UserIndex(){
-        return view('pages.Admin.UserList');
+        $users=User::where('role','!=','1')->get();
+        return view('pages.Admin.UserList')->with(['users'=>$users]);
     }
 
     public function UserCreate(){

@@ -15,29 +15,71 @@
       </div>
     </div>
 
-<form action="" method="post">
+<form action="" method="">
     @csrf
-    <div class="mb-3">
-        <label for="table">Table</label>
-        <input type="name" name="table" class="form-control" id="table" placeholder="Table number">
-        <div class="invalid-feedback">
-            Please enter a Table number
-        </div>
-    </div>
+    <table class="table table-bordered" id="table_id">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Table No</th>
+          <th scope="col">Buyer</th>
+          <th scope="col">Style</th>
+          <th scope="col">Cutting Part</th>
+          <th scope="col">Spreading Qty</th>
+          <th scope="col">Cutting Qty</th>
+          <th scope="col">Status</th>
+          <th scope="col">Remaining Balance</th>
+        </tr>
+        <tbody>
+          <tr>
+            <div>
+            <th name="add_row" rowspan="1" scope="row">1</th>
+            <td rowspan="1"><input type="name" name="table" class="form-control" id="table" placeholder=""></td>
+            <div id="row_id">
+              <td><input type="name" name="buyer" class="form-control" id="buyer" placeholder=""></td>
+            <td><input type="name" name="style" class="form-control" id="style" placeholder=""></td>
+            <td><input type="name" name="cutting_part" class="form-control" id="cutting_part" placeholder=""></td>
+            <td><input type="name" name="spreading_qty" class="form-control" id="spreading_qty" placeholder=""></td>
+            <td><input type="name" name="cutting_qty" class="form-control" id="cutting_qty" placeholder=""></td>
+            <td><input type="name" name="status" class="form-control" id="status" placeholder=""></td>
+            <td><input type="name" name="remaining_balance" class="form-control" id="remaining_balance" placeholder=""></td>
+            </div>
+            </div>
+          </tr>
 
-    {{-- <div class="mb-3">
-        <label for="Department">Department</label>
-        <select class="custom-select d-block w-100" name="role" id="state" required="">
-            <option>Choose...</option>
-            <option value="2">Cutting</option>
-            <option value="3">IE</option>
-        </select>
-        <div class="invalid-feedback">
-            Please provide a valid option.
-        </div>
-    </div>
-     --}}
+          {{-- <tr>
+            <td><input type="name" name="buyer" class="form-control" id="buyer" placeholder=""></td>
+            <td><input type="name" name="style" class="form-control" id="style" placeholder=""></td>
+            <td><input type="name" name="cutting_part" class="form-control" id="cutting_part" placeholder=""></td>
+            <td><input type="name" name="spreading_qty" class="form-control" id="spreading_qty" placeholder=""></td>
+            <td><input type="name" name="cutting_qty" class="form-control" id="cutting_qty" placeholder=""></td>
+            <td><input type="name" name="status" class="form-control" id="status" placeholder=""></td>
+            <td><input type="name" name="remaining_balance" class="form-control" id="remaining_balance" placeholder=""></td>
+          </tr> --}}
+        </tbody>
+      </thead>
+    </table>
+   <button class="btn btn-secondary btn-small" type="button" onclick="addTable()">Add Table</button>
+    <button class="btn btn-primary btn-small" type="button" onclick="addColumn()">Add Row</button>
+    <br>
+    <br>
     <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
 </form>
 </main>
 @endsection
+
+<script>
+  function addTable(){
+    // var v=document.getElementById("table_id");
+    var x=["table_no","buyer","style","cutting_part","spreading_qty","cutting_qty","status","remaining_balance"]
+    var table = document.getElementById("table_id");
+    var row = table.insertRow(2);
+    for(i=0;i<9;i++){
+      var tag=document.createElement("input");
+      var cell=row.insertCell([i]);
+      cell.append(tag)
+      
+    }
+    
+  }
+</script>
